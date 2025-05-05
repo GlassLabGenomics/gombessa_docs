@@ -20,6 +20,10 @@
 
 ## Overview 
 
+Gombessa consists of **1 node, 2 sockets/CPUs, 64 cores per socket (128 cores in total)**. Each core handles **2 threads**, meaning that we could run up to 256 parallel threads in the entire system at once. The total RAM for the entire system is **512G** A breakdown of memory and storage is listed below. 
+
+The original quote with hardware specification can be found [here](https://github.com/GlassLabGenomics/gombessa_docs/blob/main/system/UAF_RCS_241014-4C_v2.pdf).
+
 **CPU / Processor**
 
 * 2 x AMD EPYC 7713
@@ -46,6 +50,6 @@
 
 ## Getting Started
 
-### Prerequisites
+### Logging In
 
-### Installation
+### Troubleshooting
