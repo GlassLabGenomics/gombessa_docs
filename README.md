@@ -9,8 +9,8 @@
   - [Logging In](#logging-in)
   - [Troubleshooting](#troubleshooting)
 - [Configuration](#configuration)
-  - [Basic Configuration](#basic-configuration)
-  - [Advanced Configuration](#advanced-configuration)
+  - [Module System](#module-system)
+  - [Slurm Scheduler](#slurm-scheduler)
 - [Usage](#usage)
   - [Connecting to the Server](#connecting-to-the-server)
   - [Key Features and Commands](#key-features-and-commands)
@@ -67,3 +67,9 @@ We use ssh to log in. You will be prompted to enter your UA password.
 ### Troubleshooting
 
 If you cannot access gombessa even after correctly setting up VPN. You can try getting onto the UAlaska Wifi network and trying again. If it still doesn't work, you may not have approved access to gombessa. Send system admins (Jessica, Yin, Laura) an email if you cannot access gombessa.
+
+## Configuration
+
+### Module System
+
+### Slurm Scheduler
