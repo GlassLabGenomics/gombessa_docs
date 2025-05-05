@@ -6,8 +6,8 @@
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Logging In](#logging-in)
+  - [Troubleshooting](#troubleshooting)
 - [Configuration](#configuration)
   - [Basic Configuration](#basic-configuration)
   - [Advanced Configuration](#advanced-configuration)
@@ -50,16 +50,20 @@ The original quote with hardware specification can be found [here](https://githu
 
 ## Getting Started
 
-To use gombessa (as is the case with chinook), you should be familiar with working with a Unix-style command line. This is the Terminal app on Mac or Linux computers, and a Linux-emulator on Windows. The recommended way for Windows users is to install an IDE such as VSCode, and interact with the Linux terminal there.
+To use gombessa, you should be familiar with the Unix-style command line interface. This is using your computer via the Terminal app on Mac or Linux computers, and a Linux-emulator on Windows. The recommended way for Windows users is to install an IDE such as VSCode, and interact with the Linux terminal there. Users of chinook will be familiar with this.
 
 Many [command line tutorials](https://ubuntu.com/tutorials/command-line-for-beginners#3-opening-a-terminal) exist, so if you are not familiar with this way of interacting with your computer, look up a tutorial and go through it before using gombessa. 
 
 ### Logging In
 
-You can access gombessa only if you are on the [UA VPN](https://service.alaska.edu/TDClient/39/Portal/KB/ArticleDet?ID=975). This is a security feature enforced by RCS. Then, you use ssh to log in, with your UA username and password.
+You can access gombessa only if you are on the [UA VPN](https://service.alaska.edu/TDClient/39/Portal/KB/ArticleDet?ID=975). This is a security feature enforced by RCS. 
+If you are on a Linux system, install the alternative [GlobalProtect-openconnect](https://github.com/yuezk/GlobalProtect-openconnect), and use the `gpclient launch-gui` to connect to `vpn.alaska.edu`. With my Ubuntu 22.04 system, the CLI option, `gpclient connect vpn.alaska.edu` does not work.
 
-**SSH**
+We use ssh to log in. You will be prompted to enter your UA password.
 
+**SSH:**  
 `ssh username@gombessa.rcs.alaska.edu`
 
 ### Troubleshooting
+
+If you cannot access gombessa even after correctly setting up VPN. You can try getting onto the UAlaska Wifi network and trying again. If it still doesn't work, you may not have approved access to gombessa. Send system admins (Jessica, Yin, Laura) an email if you cannot access gombessa.
