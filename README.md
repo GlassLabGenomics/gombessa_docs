@@ -20,7 +20,7 @@
 
 ## Overview 
 
-Gombessa consists of **1 node, 2 sockets/CPUs, 64 cores per socket (128 cores in total)**. Each core handles **2 threads**, meaning that we could run up to 256 parallel threads in the entire system at once. The total RAM for the entire system is **512G** A breakdown of memory and storage is listed below. 
+Gombessa consists of **1 node, 2 sockets/CPUs, 64 cores per socket (128 cores in total)**. Each core handles **2 threads**, meaning that we could run up to 256 parallel threads in the entire system at once. The total RAM for the entire system is **512G**. A breakdown of memory and storage is listed below. 
 
 The original quote with hardware specification can be found [here](https://github.com/GlassLabGenomics/gombessa_docs/blob/main/system/UAF_RCS_241014-4C_v2.pdf).
 
@@ -50,6 +50,16 @@ The original quote with hardware specification can be found [here](https://githu
 
 ## Getting Started
 
+To use gombessa (as is the case with chinook), you should be familiar with working with a Unix-style command line. This is the Terminal app on Mac or Linux computers, and a Linux-emulator on Windows. The recommended way for Windows users is to install an IDE such as VSCode, and interact with the Linux terminal there.
+
+Many [command line tutorials](https://ubuntu.com/tutorials/command-line-for-beginners#3-opening-a-terminal) exist, so if you are not familiar with this way of interacting with your computer, look up a tutorial and go through it before using gombessa. 
+
 ### Logging In
+
+You can access gombessa only if you are on the [UA VPN](https://service.alaska.edu/TDClient/39/Portal/KB/ArticleDet?ID=975). This is a security feature enforced by RCS. Then, you use ssh to log in, with your UA username and password.
+
+**SSH**
+
+`ssh username@gombessa.rcs.alaska.edu`
 
 ### Troubleshooting
