@@ -20,9 +20,12 @@
 
 ## Overview 
 
-Gombessa consists of **1 node, 2 sockets/CPUs, 64 cores per socket (128 cores in total)**. Each core handles **2 threads**, meaning that we could run up to 256 parallel threads in the entire system at once. The total RAM for the entire system is **512G**. A breakdown of memory and storage is listed below. 
+Gombessa consists of **1 node, 2 sockets/CPUs, 64 cores per socket (128 cores in total)**. Each core handles **2 threads**, meaning that we could run up to 256 parallel threads in the entire system at once. The total RAM for the entire system is **512G**. A breakdown of memory and storage is listed below in the drop-down portion.
 
 The original quote with hardware specification can be found [here](https://github.com/GlassLabGenomics/gombessa_docs/blob/main/system/UAF_RCS_241014-4C_v2.pdf).
+
+<details>
+  <summary> see gombessa hardware specs </summary>
 
 **CPU / Processor**
 
@@ -47,6 +50,8 @@ The original quote with hardware specification can be found [here](https://githu
     * SATA 6Gb/s
     * Endurance: 2.6 DWPD
     * Total storage: ~61.44TB
+ 
+</details>
 
 ## Getting Started
 
@@ -72,4 +77,22 @@ If you cannot access gombessa even after correctly setting up VPN. You can try g
 
 ### Module System
 
+Gombessa has the [lmod] environment module system, such that core software needs to be loaded into the current working environment before using them. This is done with `module load <modulename>`. If you haven't worked with this before, check out our examples scripts or refer to the lmod documentation. On top of that, you can create your own environments with [mamba](https://mamba.readthedocs.io/en/latest/index.html) or [anaconda](https://www.anaconda.com/). See below for more information on this.
+
+Shown below are our current (5-6-25) default software on the system. Admins and RCS are working to expand the list. You are welcome to request software to be added, please add it to [this list](https://docs.google.com/document/d/1QPLZZZg3tKSpwjMUNc2cT1WWQoYBM_fBj2hTtbsaoTU/edit?usp=sharing) and ping us (Yin or Jessica, or both).
+```
+[yhsieh@gombessa ~]$ module --default avail
+
+------------------------------------------------------------------------------------ /usr/local/modules/easybuild/Core ------------------------------------------------------------------------------------
+   Bison/3.8.2              GCCcore/13.3.0                   M4/1.4.19           Perl/5.38.0            flex/2.6.4        gfbf/2024a     picard/3.3.0-Java-17
+   FastQC/0.12.1-Java-11    Java/21.0.5              (21)    Nextflow/24.10.2    ant/1.10.12-Java-17    foss/2024a        gompi/2024a    pkgconf/1.8.0
+   GCC/13.3.0               Julia/1.9.3-linux-x86_64         OpenSSL/3           binutils/2.42          gettext/0.22.5    ncurses/6.5    zlib/1.3.1
+```
+
+To check if gombessa has your software installed, try `module spider <modulename>`. 
+
 ### Slurm Scheduler
+
+
+
+### Setting up your own environment
