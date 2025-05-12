@@ -6,6 +6,7 @@
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
+  - [VPN](#VPN)
   - [Logging In](#logging-in)
   - [Troubleshooting](#troubleshooting)
 - [Configuration](#configuration)
@@ -59,15 +60,34 @@ To use gombessa, you should be familiar with the Unix-style command line interfa
 
 Many [command line tutorials](https://ubuntu.com/tutorials/command-line-for-beginners#3-opening-a-terminal) exist, so if you are not familiar with this way of interacting with your computer, look up a tutorial and go through it before using gombessa. 
 
+### VPN
+
+You can access gombessa only if you are on the [UA VPN](https://service.alaska.edu/TDClient/39/Portal/KB/ArticleDet?ID=975). This is a security feature enforced by RCS. Below are instructions for setting up VPN service and connecting to the UA VPN based on your OS.
+
+**MAC and WINDOWS USERS**
+
+Go to this [site](https://www.alaska.edu/oit/services/#id=162) and follow the instructions for downloading GlobalProtect for your computer. You need your UA credentials.
+
+**LINUX USERS**
+
+Take a deep breath. Then try out any of these alternatives.
+<details>
+  <summary> linux-specific-vpn-installation </summary>
+  
+If you are on a Linux system, install the alternative [GlobalProtect-openconnect](https://github.com/yuezk/GlobalProtect-openconnect), and use the `gpclient launch-gui` to connect to `vpn.alaska.edu`. With my Ubuntu 22.04 system, the CLI option, `gpclient connect vpn.alaska.edu` does not work. If it does for you, great. I find it's not worth attempting to de-bug. 
+
+However, after some time, you might find that the GUI method is requesting you to get a license. If that's the case, uninstall this version and complete the next option.
+
+NTS has a restricted access version of the GlobalProtect app for Linux. I have uploaded it to the lab drive [here](https://drive.google.com/file/d/1gzbg3OcgCah3RoxCxC7IkCNDLezM-6nF/view?usp=sharing). Unzip the file `tar -xvzf <>`, and choose which version you want to install. The GUI version is recommended, again: `GlobalProtect_UI_deb-5.3.1.0-36.deb`
+
+</details>
+
 ### Logging In
 
-You can access gombessa only if you are on the [UA VPN](https://service.alaska.edu/TDClient/39/Portal/KB/ArticleDet?ID=975). This is a security feature enforced by RCS. 
-If you are on a Linux system, install the alternative [GlobalProtect-openconnect](https://github.com/yuezk/GlobalProtect-openconnect), and use the `gpclient launch-gui` to connect to `vpn.alaska.edu`. With my Ubuntu 22.04 system, the CLI option, `gpclient connect vpn.alaska.edu` does not work.
-
-We use ssh to log in. You will be prompted to enter your UA password.
+We use ssh to log in. You will be prompted to enter your UA password. Remember to replace whatever is in these brackets `<>` with your own username.
 
 **SSH:**  
-`ssh username@gombessa.rcs.alaska.edu`
+`ssh <username>@gombessa.rcs.alaska.edu`
 
 ### Troubleshooting
 
