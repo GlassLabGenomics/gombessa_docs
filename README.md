@@ -99,9 +99,9 @@ If you cannot access gombessa even after correctly setting up VPN, you can try g
 
 ### Module System
 
-Gombessa has the [lmod](https://lmod.readthedocs.io/en/latest/) environment module system, such that core software needs to be loaded into the current working environment before using them. This is done with `module load <modulename>`. If you haven't worked with this before, check out our examples scripts or refer to the lmod documentation. On top of that, you can create your own environments with [mamba](https://mamba.readthedocs.io/en/latest/index.html) or [anaconda](https://www.anaconda.com/). See below for more information on this.
+Gombessa has the [lmod](https://lmod.readthedocs.io/en/latest/) environment module system, such that software needs to be loaded into the current working environment before using them. Software (libraries) is grouped into modules, with the grouping specific to the compiler that was used to make the library. Without getting too much into specifics, loading a module is done with `module load <modulename>`. If you haven't worked with this before, check out our examples scripts or refer to the lmod documentation. On top of that, you can create your own environments with [mamba](https://mamba.readthedocs.io/en/latest/index.html) or [anaconda](https://www.anaconda.com/). See below for more information on this.
 
-Shown below are our current (5-6-25) default software on the system. Admins and RCS are working to expand the list. You are welcome to request software to be added, please add it to [this list](https://docs.google.com/document/d/1QPLZZZg3tKSpwjMUNc2cT1WWQoYBM_fBj2hTtbsaoTU/edit?usp=sharing) and ping us (Yin or Jessica, or both).
+Shown below are our current (5-6-25) core libraries on the system. Admins and RCS are working to expand the list. You are welcome to request software to be added, please add it to [this list](https://docs.google.com/document/d/1QPLZZZg3tKSpwjMUNc2cT1WWQoYBM_fBj2hTtbsaoTU/edit?usp=sharing) and ping us (Yin or Jessica, or both).
 ```
 [yhsieh@gombessa ~]$ module --default avail
 
@@ -111,7 +111,54 @@ Shown below are our current (5-6-25) default software on the system. Admins and 
    GCC/13.3.0               Julia/1.9.3-linux-x86_64         OpenSSL/3           binutils/2.42          gettext/0.22.5    ncurses/6.5    zlib/1.3.1
 ```
 
-To check if gombessa has your software installed, try `module spider <modulename>`. 
+### Checking for software
+
+To check if gombessa has your software installed, first load a compiler. 
+
+For example, `module load GCCcore/13.3.0`. 
+
+Then run `module avail`.
+
+Below you can see a list of what is available that has been built with the GCC compiler. You would therefore need to load this compiler before you load your software.
+```
+[yhsieh@gombessa ~]$ module load GCC/13.3.0
+[yhsieh@gombessa ~]$ module avail
+
+---------------------------------------------------------------------------- /usr/local/modules/easybuild/Compiler/GCC/13.3.0 -----------------------------------------------------------------------------
+   Arrow/17.0.0       BamTools/2.5.2    FFTW/3.3.10        GSL/2.8                        OpenBLAS/0.3.27    R/4.4.2          SAMtools/1.19.2        SciPy-bundle/2024.05    pybind11/2.12.0
+   BEDTools/2.31.1    Boost/1.85.0      FlexiBLAS/3.4.4    HTSlib/1.21                    OpenMPI/5.0.3      SAMtools/1.17    SAMtools/1.21   (D)    matplotlib/3.9.2
+   BLIS/1.0           DIAMOND/2.1.11    GEOS/3.12.2        MAFFT/7.526-with-extensions    QUAST/5.2.0        SAMtools/1.18    SOCI/4.0.3             networkx/3.4.2
+
+-------------------------------------------------------------------------- /usr/local/modules/easybuild/Compiler/GCCcore/13.3.0 ---------------------------------------------------------------------------
+   Abseil/20240722.0                   Kaleido/0.2.1                  PostgreSQL/16.4                     cppy/1.2.1                 libffi/3.4.5               nettle/3.10
+   Autoconf/2.72                       LAME/3.100                     PyYAML/6.0.2                        cryptography/42.0.8        libgeotiff/1.7.3           nlohmann_json/3.11.3
+   Automake/1.16.5                     LERC/4.0.0                     Python-bundle-PyPI/2024.06          expat/2.6.2                libgit2/1.8.1              nodejs/20.13.1
+   Autotools/20231222                  LLVM/18.1.8-minimal            Python/3.12.3                       flex/2.6.4          (D)    libglvnd/1.7.0             numactl/2.0.18
+   BWA/0.7.18                          LMDB/0.9.31                    Qhull/2020.2                        flit/3.9.0                 libiconv/1.17              patchelf/0.18.0
+   Bison/3.8.2                  (D)    LibTIFF/4.6.0                  RE2/2024-07-02                      fontconfig/2.15.0          libjpeg-turbo/3.0.1        pixman/0.43.4
+   Brotli/1.1.0                        LittleCMS/2.16                 RapidJSON/1.1.0-20240815            fonttools/4.53.1           libogg/1.3.5               pkgconf/2.2.0            (D)
+   Brunsli/0.1                         M4/1.4.19               (D)    Rust/1.78.0                         freetype/2.13.2            libopus/1.5.2              plotly.py/5.24.1
+   CFITSIO/4.4.1                       MPFR/4.2.1                     SQLite/3.45.3                       gettext/0.22.5      (D)    libpciaccess/0.18.1        poetry/1.8.3
+   CMake/3.29.3                        Mako/1.3.5                     SWIG/4.2.1                          giflib/5.2.1               libpng/1.6.43              pydantic/2.9.1
+   Catch2/2.13.10                      Mesa/24.1.3                    Szip/2.1.1                          giflib/5.2.2        (D)    libreadline/8.2            scikit-build/0.17.6
+   Cython/3.0.10                       Meson/1.4.0                    Tcl/8.6.14                          googletest/1.15.2          libsndfile/1.2.2           setuptools-rust/1.9.0
+   Doxygen/1.11.0                      NASM/2.16.03                   Tk/8.6.14                           gperf/3.1                  libtirpc/1.3.5             snappy/1.2.1
+   Eigen/3.4.0                         NLopt/2.7.1                    Tkinter/3.12.3                      groff/1.23.0               libtool/2.4.7              tiktoken/0.9.0
+   FLAC/1.4.3                          Ninja/1.12.1                   UCC/1.3.0                           hatchling/1.24.2           libunwind/1.8.1            tqdm/4.66.5
+   FriBidi/1.0.15                      OpenEXR/3.2.4                  UCX/1.16.0                          help2man/1.49.3            libvorbis/1.3.7            typing-extensions/4.11.0
+   GLPK/5.0                            OpenJPEG/2.5.2                 UDUNITS/2.2.28                      hwloc/2.10.0               libwebp/1.4.0              utf8proc/2.9.0
+   GLib/2.80.4                         PCRE/8.45                      Wayland/1.23.0                      hypothesis/6.103.1         libxml2/2.12.7             util-linux/2.40
+   GMP/6.3.0                           PCRE2/10.43                    X11/20240607                        intltool/0.51.0            libxslt/1.1.42             virtualenv/20.26.2
+   GObject-Introspection/1.80.1        PMIx/5.0.2                     XZ/5.4.5                            jbigkit/2.1                libyaml/0.2.5              xorg-macros/1.20.1
+   Ghostscript/10.03.1                 PROJ/9.4.1                     Xerces-C++/3.2.5                    json-c/0.17                lit/18.1.8                 yaml-cpp/0.8.0
+   HDF/4.3.0                           PRRTE/3.0.5                    Xvfb/21.1.14                        libGLU/9.0.3               lz4/1.9.4                  zlib/1.3.1               (L,D)
+   HarfBuzz/9.0.0                      Pango/1.54.0                   binutils/2.42              (L,D)    libarchive/3.7.4           make/4.4.1                 zstd/1.5.6
+   ICU/75.1                            Perl-bundle-CPAN/5.38.2        bzip2/1.0.8                         libdeflate/1.20            makeinfo/7.1
+   ImageMagick/7.1.1-38                Perl/5.38.2             (D)    cairo/1.18.0                        libdrm/2.4.122             maturin/1.6.0
+   Imath/3.1.11                        Pillow-SIMD/10.4.0             cffi/1.16.0                         libevent/2.1.12            meson-python/0.16.0
+   JasPer/4.2.4                        Pillow/10.4.0                  cpio/2.15                           libfabric/1.21.0           ncurses/6.5         (D)
+
+```
 
 Some more module commands to configure your environment are given below. The table is taken from [this useful tutorial](https://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/).
 
