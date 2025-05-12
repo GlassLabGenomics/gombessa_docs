@@ -77,7 +77,7 @@ If you cannot access gombessa even after correctly setting up VPN. You can try g
 
 ### Module System
 
-Gombessa has the [lmod] environment module system, such that core software needs to be loaded into the current working environment before using them. This is done with `module load <modulename>`. If you haven't worked with this before, check out our examples scripts or refer to the lmod documentation. On top of that, you can create your own environments with [mamba](https://mamba.readthedocs.io/en/latest/index.html) or [anaconda](https://www.anaconda.com/). See below for more information on this.
+Gombessa has the [lmod](https://lmod.readthedocs.io/en/latest/) environment module system, such that core software needs to be loaded into the current working environment before using them. This is done with `module load <modulename>`. If you haven't worked with this before, check out our examples scripts or refer to the lmod documentation. On top of that, you can create your own environments with [mamba](https://mamba.readthedocs.io/en/latest/index.html) or [anaconda](https://www.anaconda.com/). See below for more information on this.
 
 Shown below are our current (5-6-25) default software on the system. Admins and RCS are working to expand the list. You are welcome to request software to be added, please add it to [this list](https://docs.google.com/document/d/1QPLZZZg3tKSpwjMUNc2cT1WWQoYBM_fBj2hTtbsaoTU/edit?usp=sharing) and ping us (Yin or Jessica, or both).
 ```
@@ -90,6 +90,22 @@ Shown below are our current (5-6-25) default software on the system. Admins and 
 ```
 
 To check if gombessa has your software installed, try `module spider <modulename>`. 
+
+Some more module commands to configure your environment are given below. The table is taken from [this useful tutorial](https://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/).
+
+
+| Command                        | Description                                                   |
+|--------------------------------|---------------------------------------------------------------|
+| `module avail`                 | Lists all the modules which are available to be loaded        |
+| `module spider <pattern>`      | Search for <pattern> among available modules **(Lmod only)**  |
+| `module load <mod1> [mod2...]` | Load a module                                                 |
+| `module unload <module>`       | Unload a module                                               |
+| `module list`                  | List loaded modules                                           |
+| `module purge`                 | Unload all modules (purge)                                    |
+| `module display <module>`      | Display what a module does                                    |
+| `module use <path>`            | Prepend the directory to the MODULEPATH environment variable  |
+| `module unuse <path>`          | Remove the directory from the MODULEPATH environment variable |
+
 
 ### Slurm Scheduler
 
