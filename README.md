@@ -178,6 +178,32 @@ Some more module commands to configure your environment are given below. The tab
 
 ### Slurm Scheduler
 
-
+RCS is currently working on installing slurm.
 
 ### Setting up your own environment
+
+#### Automatically loading modules into the workspace
+If you primarily work with several types of packages loaded, you can consider configuring your login to automatically load modules. 
+
+You do this by modifying your `.bashrc` file and adding this segment, putting module commands below the comment:
+
+```
+if [ -z "$BASHRC_READ" ]; then
+   export BASHRC_READ=1
+   # Place any module commands here
+   module load <>
+fi
+```
+
+For example, my `.bashrc` file has: 
+
+```
+if [ -z "$BASHRC_READ" ]; then
+   export BASHRC_READ=1
+   # Place any module commands here
+   module load foss/2024a
+   module load Python/3.12.3
+fi
+```
+**NOTE: this doesn't affect any jobs you submit via slurm, you will still have to specify in your job script which modules you load, and always preface with `module purge`**
+
