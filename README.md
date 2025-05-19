@@ -183,6 +183,9 @@ RCS is currently working on installing slurm.
 ### Setting up your own environment
 
 #### Automatically loading modules into the workspace
+
+**Only do this if you are mainly working interactively (for example, through an IDE)**
+
 If you primarily work with several types of packages loaded, you can consider configuring your login to automatically load modules. 
 
 You do this by modifying your `.bashrc` file and adding this segment, putting module commands below the comment:
@@ -207,3 +210,7 @@ fi
 ```
 **NOTE: this doesn't affect any jobs you submit via slurm, you will still have to specify in your job script which modules you load, and always preface with `module purge`**
 
+#### Installing your own software (recommended)
+
+
+#### Installing your own software (if you really know what you're doing)
