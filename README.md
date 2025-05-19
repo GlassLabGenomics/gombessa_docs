@@ -186,6 +186,9 @@ RCS is currently working on installing slurm.
 
 **Only do this if you are mainly working interactively (for example, through an IDE)**
 
+<details>
+  <summary> load modules upon login </summary>
+
 If you primarily work with several types of packages loaded, you can consider configuring your login to automatically load modules. 
 
 You do this by modifying your `.bashrc` file and adding this segment, putting module commands below the comment:
@@ -209,8 +212,57 @@ if [ -z "$BASHRC_READ" ]; then
 fi
 ```
 **NOTE: this doesn't affect any jobs you submit via slurm, you will still have to specify in your job script which modules you load, and always preface with `module purge`**
+</details>
+
 
 #### Installing your own software (recommended)
 
+<details>
+  <summary> creating and using virtual environments </summary>
 
-#### Installing your own software (if you really know what you're doing)
+</details>
+
+
+#### Installing your own software with EasyBuild (more advanced, please make sure you know what you're doing)
+
+<details>
+  <summary> installing and using EasyBuild </summary>
+
+**For general purpose software shared across users, installer has no root access**
+
+According to its documentation, [EasyBuild](https://docs.easybuild.io/installation/) is a software build and installation framework that allows you to manage (scientific) software on High Performance Computing (HPC) systems in an efficient way. It basically does the heavy-lifting of software installing in the background to arrange dependencies and avoid versioning issues, and allows for sharing of installed software, co-existence of packages of different versions, and is generally very useful if you want to set up a server. 
+
+We recommend you use it to install software that may be useful to everyone on the compute node, such as general purpose alignment software, or other types of well-known and well-used bioinformatics software. For all other personal-use software please install it within your own virtual environment with conda or mamba.
+
+Below I detail the code used to install Mamba on gombessa. EasyBuild is Python-dependent so requires you have the Python module loaded.
+
+```
+## load the necessary libraries
+module load foss/2024a 
+module load Python/3.12.3
+
+## install easybuild 
+pip install easybuild
+```
+
+Successful installation of EasyBuild will put an easybuild folder in your .local directory that is structured as follows.
+```
+[yhsieh@gombessa ~]$ ls .local/easybuild/
+build  easyconfigs  ebfiles_repo  modules  scripts  software  sources
+```
+
+EasyBuild installs use easyconfig files, that you can find with `eb --search <softwarename>`. Most software you will be installing with EasyBuild will be already included in their own repository of config files. 
+
+Make sure you test with a dry run before installing your package.
+
+```
+## test out what files are downloaded if this is installed
+eb Miniforge3-24.11.3-0 --dry-run
+
+## actually install the package
+eb Miniforge3-24.11.3-0.eb
+```
+
+Once installation is successful, make sure you add the path of your EasyBuild installed packages to lmod, using the `module use` command. The path to my EasyBuild-installed packages is `/home/yhsieh/.local/easybuild/modules/all/`, so I run `module use /home/yhsieh/.local/easybuild/modules/all`. I can also add this to my `.bashrc`.
+
+</details>
