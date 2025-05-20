@@ -1,0 +1,7 @@
+1. When is slurm going to be installed?
+
+2. How to be allowed to create shared folders in home?
+
+3. Partitioning of filesystems - where is work folder where is storage folder?
+	- where are the remaining 60+TB of space?
+	- why aren't they mounted?
