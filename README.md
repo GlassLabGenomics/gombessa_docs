@@ -265,4 +265,15 @@ eb Miniforge3-24.11.3-0.eb
 
 Once installation is successful, make sure you add the path of your EasyBuild installed packages to lmod, using the `module use` command. The path to my EasyBuild-installed packages is `/home/yhsieh/.local/easybuild/modules/all/`, so I run `module use /home/yhsieh/.local/easybuild/modules/all`. I can also add this to my `.bashrc`.
 
+If I check what modules are available to me now I can see:
+```
+[yhsieh@gombessa ~]$ module avail
+
+----------------------------------------------------------------------------------- /home/yhsieh/.local/easybuild/modules/all ------------------------------------------------------------------------------------
+   Miniforge3/24.11.3-0
+
+```
+
+I can run `module load Miniforge3/24.11.3-0` and I am ready to use `conda` and `mamba` as usual.
+
 </details>
