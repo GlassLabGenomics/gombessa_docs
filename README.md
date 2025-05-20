@@ -54,6 +54,23 @@ The original quote with hardware specification can be found [here](https://githu
  
 </details>
 
+## Filesystem
+
+```
+[yhsieh@gombessa home]$ df -h
+Filesystem                      Size  Used Avail Use% Mounted on
+devtmpfs                        4.0M     0  4.0M   0% /dev
+tmpfs                           252G     0  252G   0% /dev/shm
+tmpfs                           101G  955M  100G   1% /run
+/dev/mapper/vg_server-root       49G  3.1G   46G   7% /
+/dev/mapper/vg_server-home       49G   17G   33G  34% /home
+/dev/mapper/vg_server-var        15G  1.1G   14G   8% /var
+/dev/mapper/vg_server-tmp       9.7G  104M  9.6G   2% /tmp
+/dev/sda2                       968M  308M  610M  34% /boot
+/dev/sda4                       200M   12K  200M   1% /boot/efi
+/dev/mapper/vg_server-software  100G   30G   71G  30% /usr/local
+```
+
 ## Getting Started
 
 To use gombessa, you should be familiar with the Unix-style command line interface. This is using your computer via the Terminal app on Mac or Linux computers, and a Linux-emulator on Windows. The recommended way for Windows users is to install an IDE such as VSCode, and interact with the Linux terminal there. Users of chinook will be familiar with this.
