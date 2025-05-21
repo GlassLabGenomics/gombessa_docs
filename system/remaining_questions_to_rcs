@@ -3,5 +3,11 @@
 2. How to be allowed to create shared folders in home?
 
 3. Partitioning of filesystems - where is work folder where is storage folder?
-	- where are the remaining 60+TB of space?
-	- why aren't they mounted?
+	- want to avoid people all working from their home folder
+	- where are the remaining 60+TB of storage space mounted?
+
+4. General installation questions:
+	- if individual users install a package via EasyBuild, it goes into their local easybuild modules directory, how can we share this?
+	- most users will be using conda environments, so could miniforge be installed centrally as well?
+
+5. Admin rights - could laura, yin, jessica also get sudo privileges?
