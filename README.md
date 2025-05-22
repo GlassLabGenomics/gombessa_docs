@@ -11,13 +11,10 @@
   - [Troubleshooting](#troubleshooting)
 - [Configuration](#configuration)
   - [Module System](#module-system)
+  - [Checking for software](#checking-for-software)
   - [Slurm Scheduler](#slurm-scheduler)
-- [Usage](#usage)
-  - [Connecting to the Server](#connecting-to-the-server)
-  - [Key Features and Commands](#key-features-and-commands)
-- [Support](#support)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+  - [Setting up your own environment](#setting-up-your-own-environment)
+- [File Transfer](#file-transfer)
 
 ## Overview 
 
@@ -33,7 +30,7 @@ The original quote with hardware specification can be found [here](https://githu
 * 2 x AMD EPYC 7713
     * Each CPU:
         * 64 cores / 128 threads (SMT enabled)
-        * Clock speed: 2.00 GHz base
+        * Clock speed: 2.00 GHz baseS
         * 256 MB L3 Cache
         * 225W TDP
     * Total: 128 cores / 256 threads
@@ -294,3 +291,5 @@ If I check what modules are available to me now I can see:
 I can run `module load Miniforge3/24.11.3-0` and I am ready to use `conda` and `mamba` as usual.
 
 </details>
+
+## File Transfer
