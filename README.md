@@ -1,6 +1,6 @@
 # gombessa
 
-> This is the Glasslab compute resource that is hosted by [UAF RCS](https://www.gi.alaska.edu/services/research-computing-systems), located underneath Butrovich. This is our Linux-based server to configure to and use for our lab's bioinformatic and data analysis needs, and can be used instead or in addition to RCS's [chinook](https://uaf-rcs.gitbook.io/uaf-rcs-hpc-docs/hpc).
+> This is the Glasslab compute node that is hosted by [UAF RCS](https://www.gi.alaska.edu/services/research-computing-systems), located underneath Butrovich. This is our Linux-based server to configure and use for our lab's bioinformatic and data analysis needs, and can be used instead of or in addition to RCS's [chinook](https://uaf-rcs.gitbook.io/uaf-rcs-hpc-docs/hpc).
 
 ## Table of Contents
 
@@ -293,3 +293,23 @@ I can run `module load Miniforge3/24.11.3-0` and I am ready to use `conda` and `
 </details>
 
 ## File Transfer
+
+### Local and remote file synchronization
+
+#### Rsync
+
+Rsync is an optimized tool to copy files locally or over a network, and is a lot smarter than scp (below). 
+
+(not yet installed on gombessa)
+
+#### SCP
+
+SCP reads source files and writes them to the destination. It is not the most optimized, so works best for single files or smaller directories. Sample usage for single files and directories is shown below.
+
+`scp <localfile> yhsieh@gombessa.rcs.alaska.edu:/home/yhsieh`
+
+`scp -r <localdir> yhsieh@gombessa.rcs.alaska.edu:/home/yhsieh`
+
+### Syncing with cloud storage providers like Google Drive
+
+#### Rclone
