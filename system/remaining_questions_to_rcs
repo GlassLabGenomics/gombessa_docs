@@ -1,4 +1,4 @@
-1. Logging in - how to support Linux users, GlobalProtect does not work well
+1. Logging in - how to support Linux users, GlobalProtect does not work well (can ssh to chinook, then ssh to gombessa w/o vpn)
 
 6. Admin rights - could laura, yin, jessica also get sudo privileges?
 
