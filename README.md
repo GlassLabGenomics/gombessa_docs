@@ -87,10 +87,15 @@ Go to this [site](https://www.alaska.edu/oit/services/#id=162) and follow the in
 
 **LINUX USERS**
 
-Take a deep breath. Then try out any of these alternatives.
+First try logging into chinook, and ssh-ing into gombessa. That way you can avoid VPN installation altogether. 
+
+If that doesn't work, install the [current](https://drive.google.com/file/d/1T_Itwtn3Gje1YYPav_1_01Q_5ADG5PTw/view?usp=drive_link) version of GlobalProtect for Linux, provided to us by RCS. Unzip the file `tar -xvzf <>`. Run the shell script `gp_install.sh`. Then every time you want to connect to the VPN just run the GlobalProtect client from your application search menu and enter `vpn.alaska.edu` as your portal, and your UA login details.
+
+If this doesn't work, try the alternatives below. They are tested to have flaws on our Linux machines but could work for you.
+
 <details>
-  <summary> linux-specific-vpn-installation </summary>
-  
+  <summary> alternative linux global protect if the main option doesn't work </summary>
+
 1. Install the alternative [GlobalProtect-openconnect](https://github.com/yuezk/GlobalProtect-openconnect), and use the `gpclient launch-gui` to connect to `vpn.alaska.edu`.
 
 With my Ubuntu 22.04 system, the CLI option, `gpclient connect vpn.alaska.edu` bugs out. If it works for you, great, because this is open source.
