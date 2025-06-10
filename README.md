@@ -200,7 +200,24 @@ Some more module commands to configure your environment are given below. The tab
 
 ### Slurm Scheduler
 
-RCS is currently working on installing slurm.
+To use slurm, you need to load the module `module load slurm/24.11.0`
+
+We have one partition called , with a maximum time of 14 days, with default memory per CPU at 100MB. If you are curious about further default stats, run `scontrol show config` for overall configuration or `scontrol show partition` for our specific setup of defq.
+
+When you run a job, make sure you state how many CPUs you need, how much memory you need, and how much time. 
+
+For example:
+
+```
+#!/bin/bash
+#SBATCH --job-name=blast
+#SBATCH --partition=defq
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=1MB
+#SBATCH --time=02:00:00
+
+<code here>
+```
 
 ### Setting up your own environment
 
