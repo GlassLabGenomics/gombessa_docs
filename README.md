@@ -202,7 +202,7 @@ Some more module commands to configure your environment are given below. The tab
 
 To use slurm, you need to load the module `module load slurm/24.11.0`
 
-We have one partition called , with a maximum time of 14 days, with default memory per CPU at 100MB. If you are curious about further default stats, run `scontrol show config` for overall configuration or `scontrol show partition` for our specific setup of defq.
+We have one default partition `defq`, with a maximum time of 14 days, with default memory per CPU at 100MB. If you are curious about further default stats, run `scontrol show config` for overall configuration or `scontrol show partition` for our specific setup of defq.
 
 When you run a job, make sure you state how many CPUs you need, how much memory you need, and how much time. 
 
